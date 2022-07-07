@@ -12,3 +12,17 @@ main.template {
   height: 100vh;
   background: #ddd;
 }
+
+/* code for navbar */
+.navbar {
+  position: relative;
+}
+.navbar .container {
+  position: relative;
+}
+.input-nav-container {
+  position: absolute;
+  right: 0em;
+}
+
+/* end code navbar */
