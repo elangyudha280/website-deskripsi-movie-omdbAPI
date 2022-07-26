@@ -123,6 +123,7 @@ main.template {
   color: #fff;
   text-align: center;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .desc-container .button-c {
   width: 100%;
