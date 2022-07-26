@@ -56,7 +56,7 @@ button_search.addEventListener('click', async function(){
     // panggil function fecthnya
     let data_m =  await dataMovie(input_search);
 
-     updateUi(data_m);
+     await updateUi(data_m);
     
 
 
