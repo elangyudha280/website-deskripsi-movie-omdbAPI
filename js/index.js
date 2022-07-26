@@ -40,7 +40,11 @@ function updateUi(data){
 
 
 // 1.3 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
-
+document.addEventListener('click',function(e){
+    if(e.target.className === 'judul-film'){
+        console.log(e.target.dataset.imdb);
+    }
+})
 
 
 // 2.buat event untuk ambil datanya dari inputan modal search
