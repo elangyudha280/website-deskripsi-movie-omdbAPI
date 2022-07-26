@@ -43,8 +43,22 @@ function updateUi(data){
 function dataModal(imdb){
 
     return fetch(`http://www.omdbapi.com/?apikey=1a8df092&t=${imdb}`)
-    .then(data_xhr => data_xhr.json())
-    .then(respone => console.log(respone));
+    .then(data_xhr => data_xhr.json())  
+    .then(respone => respone);
+
+}
+
+// 1.4 function untk updateUi modalnya
+
+function updateUiModal(data_modal){
+
+    let fragment = document.querySelector('.modal-card');
+    let cards = `  
+         <p class="">${data_modal.Title}</p>  
+    `;
+
+       
+    return fragment.innerHTML = cards;
 
 }
 
@@ -54,7 +68,10 @@ document.addEventListener('click', async function(e){
     if(e.target.className === 'judul-film'){
 
         let imdb = e.target.textContent;
-        let data_modal = dataModal(imdb)
+        let data_modal = await dataModal(imdb);
+
+        updateUiModal(data_modal);
+            console.log(data_modal.Title)
     }
 })
 
