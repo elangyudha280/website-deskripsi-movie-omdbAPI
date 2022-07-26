@@ -21,10 +21,19 @@ function dataMovie(keyword){
 
 const button_search = document.querySelector('.btn-search-movie')
 
+
+
+
 // kasih event button searchnya
-button_search.addEventListener('click',function(){
+button_search.addEventListener('click', async function(){
 
     // seleksi nilai inputannya
-    let input_search = document.querySelector('')
+    let input_search = document.querySelector('.input-search').value;
+
+    // panggil function fecthnya
+    await dataMovie(input_search);
+
+ 
+
 
 })
