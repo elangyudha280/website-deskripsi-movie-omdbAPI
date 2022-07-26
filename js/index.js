@@ -39,6 +39,10 @@ function updateUi(data){
 }
 
 
+// 1.3 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
+
+
+
 // 2.buat event untuk ambil datanya dari inputan modal search
 // variable element button searchnya
 
