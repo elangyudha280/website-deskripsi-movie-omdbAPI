@@ -38,11 +38,23 @@ function updateUi(data){
    return container_list.innerHTML = card;
 }
 
+// 1.3 FUNCTION UNTUK manggil data api unutk modalnya
 
-// 1.3 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
-document.addEventListener('click',function(e){
+function dataModal(imdb){
+
+    return fetch(`http://www.omdbapi.com/?apikey=1a8df092&t=${imdb}`)
+    .then(data_xhr => data_xhr.json())
+    .then(respone => console.log(respone));
+
+}
+
+
+// 1.4 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
+document.addEventListener('click', async function(e){
     if(e.target.className === 'judul-film'){
-        console.log(e.target.dataset.imdb);
+
+        let imdb = e.target.textContent;
+        let data_modal = dataModal(imdb)
     }
 })
 
