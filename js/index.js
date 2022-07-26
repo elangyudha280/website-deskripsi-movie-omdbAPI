@@ -26,7 +26,7 @@ function updateUi(data){
                 <img src="${(element.Poster === "N/A" || element.Poster === undefined) ? "../img/default.jpg" : element.Poster}" alt="" class="img-movie">
                 <div class="desc-container">
                     <div class="desc-kotak">
-                    <h4 class="judul-film" data-bs-toggle="modal" data-bs-target="#exampleModal">${element.Title}</h4>
+                    <h4 class="judul-film" data-bs-toggle="modal" data-bs-target="#exampleModal" data-imdb="${element.imdbID}">${element.Title}</h4>
                     </div>
                 </div>
                 </div>
@@ -58,6 +58,4 @@ button_search.addEventListener('click', async function(){
 
      await updateUi(data_m);
     
-
-
 })
