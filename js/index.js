@@ -54,13 +54,29 @@ function updateUiModal(data_modal){
 
     let fragment = document.querySelector('.modal-card');
     let cards = `  
-         <p class="">${data_modal.Title}</p>  
+                <div class="row  justify-content-md-center">
+                <div class="col-md-6 grid-modal ">
+                <img src="${(data_modal.Poster === "N/A" || data_modal.Poster === undefined) ? "../img/default.jpg" : data_modal.Poster}" alt="" class="img-modal">
+                </div>
+            </div>
+            <div class="row ">
+            <div class="col-md-12 ">
+            <h3 class="title-modal mt-4">${data_modal.Title}</h3>
+            <p class="release-modal ">release : ${data_modal.Released}</p>
+            <p class="genre-modal p-modal">genre : ${data_modal.Genre}</p>
+            <p class="actor-modal p-modal">actor : ${data_modal.Actors}</p>
+            <p class="ranting-modal p-modal">rantings : ${data_modal.Ratings[0].Value}</p>
+            </div>
+            </div>
+
+        
     `;
 
        
     return fragment.innerHTML = cards;
 
 }
+
 
 
 // 1.4 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
@@ -71,7 +87,7 @@ document.addEventListener('click', async function(e){
         let data_modal = await dataModal(imdb);
 
         updateUiModal(data_modal);
-            console.log(data_modal.Title)
+            console.log(data_modal)
     }
 })
 

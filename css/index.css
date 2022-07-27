@@ -10,7 +10,7 @@ main.template {
   left: 0;
   width: 100%;
   overflow-x: hidden;
-  background: #ddd;
+  background: rgb(14, 20, 41);
 }
 
 /* code for navbar */
@@ -20,15 +20,22 @@ main.template {
 .navbar .container {
   position: relative;
 }
+.nav-header {
+  background: rgb(23, 42, 70);
+  box-shadow: 0 10px 1em -0.7em #121212;
+}
+.navbar .text-nav {
+  color: rgba(187, 134, 252, 1);
+}
 .input-nav-container {
   position: absolute;
   right: 0em;
 }
 .input-nav-container .btn-icon-input {
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgb(18, 18, 18);
   border: none;
-  color: rgb(23, 198, 178);
+  color: rgba(187, 134, 252, 1);
   transition: 0.3s;
   display: grid;
   padding: 0.6em 0.7em;
@@ -70,7 +77,7 @@ main.template {
   width: 980px;
 }
 .container-movie .judul-movie {
-  color: #fff;
+  color: rgba(187, 134, 252, 1);
   text-transform: capitalize;
   font-size: 2em;
 }
@@ -135,6 +142,43 @@ main.template {
 }
 
 /* end code for jumbotron movie */
+
+/* code for modal */
+.modal-content {
+  background: rgb(22, 30, 41);
+  color: rgba(187, 134, 252, 1);
+}
+.grid-modal {
+  /* border: 1px solid red; */
+  justify-items: center;
+  overflow: hidden;
+  /* height: ; */
+}
+.modal-card {
+  height: 330px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.img-modal {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+.title-modal {
+  text-transform: capitalize;
+}
+.p-modal {
+  margin-top: -1em;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.8);
+}
+.release-modal {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* end code modal */
 
 /* code for media < 1000px */
 
