@@ -87,7 +87,6 @@ document.addEventListener('click', async function(e){
         let data_modal = await dataModal(imdb);
 
         updateUiModal(data_modal);
-            console.log(data_modal)
     }
 })
 
