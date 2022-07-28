@@ -9,9 +9,21 @@
 
 function dataMovie(keyword){
     return fetch(`http://www.omdbapi.com/?apikey=1a8df092&s=${keyword}`)
-    .then((data_api) => data_api.json())
-    .then((respone) => {
-       return respone;
+    .then((data_api) => {
+        // cek apakah data object ajaxnya statusnya true || false
+       if(!data_api.ok){
+        //    jika false lempar error ke catch di event click 
+            throw new Error(data_api.statusText);
+       }
+
+       return data_api.json();
+    })
+    .then((response) => {
+       if(response.Response === 'False'){
+           throw new Error(response.Error);
+       }
+
+       return response;
     })
 }
 
@@ -44,9 +56,23 @@ function dataModal(imdb){
 
     return fetch(`http://www.omdbapi.com/?apikey=1a8df092&t=${imdb}`)
     .then(data_xhr => {
-        console.log(data_xhr)
+
+          // cek apakah data object ajaxnya statusnya true || false
+       if(!data_xhr.ok){
+        //    jika false lempar error ke catch di event click 
+            throw new Error(data_xhr.statusText);
+       }
+
+       return data_xhr.json();
+
     })  
-    .then(respone => respone);
+    .then(response => {
+        if(response.Response === 'False'){
+            throw new Error(response.Error);
+        }
+ 
+        return response;
+    });
 
 }
 
@@ -84,11 +110,16 @@ function updateUiModal(data_modal){
 // 1.4 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
 document.addEventListener('click', async function(e){
     if(e.target.className === 'judul-film'){
+            try{
+                
+            let imdb = e.target.textContent;
+            let data_modal = await dataModal(imdb);
 
-        let imdb = e.target.textContent;
-        let data_modal = await dataModal(imdb);
-
-        updateUiModal(data_modal);
+            updateUiModal(data_modal);
+            }
+            catch(error){
+                console.error(error);
+            }
     }
 })
 
@@ -103,13 +134,20 @@ const button_search = document.querySelector('.btn-search-movie')
 
 // kasih event button searchnya
 button_search.addEventListener('click', async function(){
+// blok jika fetchnya tidak terjadi kesalaha || berhasil
+try{
+     // seleksi nilai inputannya
+     let input_search = document.querySelector('.input-search').value;
 
-    // seleksi nilai inputannya
-    let input_search = document.querySelector('.input-search').value;
-
-    // panggil function fecthnya
-    let data_m =  await dataMovie(input_search);
-
-     await updateUi(data_m);
+     // panggil function fecthnya
+     let data_m =  await dataMovie(input_search);
+ 
+       updateUi(data_m);
+}
+// jika gagal
+catch(err){
+    console.error(err);
+}
+   
     
 })
