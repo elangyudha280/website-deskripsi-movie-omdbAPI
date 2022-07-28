@@ -43,7 +43,9 @@ function updateUi(data){
 function dataModal(imdb){
 
     return fetch(`http://www.omdbapi.com/?apikey=1a8df092&t=${imdb}`)
-    .then(data_xhr => data_xhr.json())  
+    .then(data_xhr => {
+        console.log(data_xhr)
+    })  
     .then(respone => respone);
 
 }
