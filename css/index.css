@@ -82,6 +82,8 @@ main.template {
   color: rgba(187, 134, 252, 1);
   text-transform: capitalize;
   font-size: 2em;
+
+  animation: show 1s linear 1 forwards;
 }
 .container-movie .container-list {
   position: relative;
@@ -221,30 +223,6 @@ main.template {
   text-transform: capitalize;
   margin-top: 1em;
 }
-.i-stars {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  z-index: 1;
-  background-color: #fff;
-  opacity: 0;
-  animation: stars 2s linear infinite;
-}
-
-@keyframes stars {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate {
-  animation: show 0.5 linear 1 forwards;
-  opacity: 0;
-}
 
 @keyframes show {
   from {
@@ -256,6 +234,24 @@ main.template {
 }
 
 /* end code page not found */
+
+/* code for pop up movie */
+.popup-title {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  display: grid;
+  opacity: 0;
+  place-items: center;
+  color: #fff;
+  text-transform: capitalize;
+  animation: show 1s 0.6s linear 1 forwards;
+}
+.animate-show {
+  animation: show 1s linear 1 forwards;
+}
+/* end code for pop up movie */
 
 /* code for media < 1000px */
 

@@ -12,8 +12,8 @@ function dataMovie(keyword){
     .then((data_api) => {
         // cek apakah data object ajaxnya statusnya true || false
        if(!data_api.ok){
-           
-        uiNotFound()
+        uiNotFound("Ooops something wrong");
+    
         //    jika false lempar error ke catch di event click 
             throw new Error(data_api.statusText);
        }
@@ -22,8 +22,9 @@ function dataMovie(keyword){
     })
     .then((response) => {
        if(response.Response === 'False'){
-
-            uiNotFound()
+             uiNotFound()
+            movieNav("Oops something wrong")
+            
            throw new Error(response.Error);
         }
 
@@ -72,6 +73,7 @@ function dataModal(imdb){
     })  
     .then(response => {
         if(response.Response === 'False'){
+            
             throw new Error(response.Error);
         }
  
@@ -165,10 +167,16 @@ try{
      // seleksi nilai inputannya
      let input_search = document.querySelector('.input-search').value;
 
-     // panggil function fecthnya
-     let data_m =  await dataMovie(input_search);
+     if(input_search === ''){
+         movieNav("Oops something wrong")
+     }
     
-        updateUi(data_m);
+
+    // panggil function fecthnya
+    let data_m =  await dataMovie(input_search);
+   
+       updateUi(data_m);
+       movieNav(input_search)
      
 }
 // jika gagal
@@ -181,5 +189,12 @@ catch(err){
 
 
 
-// fitur stars not found
+// function movie nav
+function movieNav(text){
+    let movie_nav =document.querySelector('.judul-movie');
+    
+    movie_nav.textContent = `${text}`;
+    
+
+}
 
