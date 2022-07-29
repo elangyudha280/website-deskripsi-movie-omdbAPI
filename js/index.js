@@ -12,6 +12,8 @@ function dataMovie(keyword){
     .then((data_api) => {
         // cek apakah data object ajaxnya statusnya true || false
        if(!data_api.ok){
+           
+        uiNotFound()
         //    jika false lempar error ke catch di event click 
             throw new Error(data_api.statusText);
        }
@@ -20,6 +22,8 @@ function dataMovie(keyword){
     })
     .then((response) => {
        if(response.Response === 'False'){
+
+            uiNotFound()
            throw new Error(response.Error);
         }
 
@@ -107,6 +111,26 @@ function updateUiModal(data_modal){
 
 
 
+// 1.5 function untuk iu page not found
+function uiNotFound(){
+    
+    let container_list = document.querySelector('.container-list');
+    let not = `    <!-- desain not found -->
+    <div class="not-found-container">
+      <div class="page-item">
+        <div class="judul-page-found">
+          <h1>4</h1>
+          <div class="not-moon"></div>
+          <h1>4</h1>
+        </div>
+        <p class="desc-not">looks like the movie was not found.....</p>
+      </div>
+    </div>`
+
+    return container_list.innerHTML = not;
+}
+
+
 // 1.4 BUAT EVENT PADA JUDUL MOVIE MENGGUNAKAN TEKNIK EVEN BANDING
 document.addEventListener('click', async function(e){
     if(e.target.className === 'judul-film'){
@@ -136,13 +160,16 @@ const button_search = document.querySelector('.btn-search-movie')
 button_search.addEventListener('click', async function(){
 // blok jika fetchnya tidak terjadi kesalaha || berhasil
 try{
+    
+    
      // seleksi nilai inputannya
      let input_search = document.querySelector('.input-search').value;
 
      // panggil function fecthnya
      let data_m =  await dataMovie(input_search);
- 
-       updateUi(data_m);
+    
+        updateUi(data_m);
+     
 }
 // jika gagal
 catch(err){
