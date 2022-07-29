@@ -195,7 +195,6 @@ main.template {
 .page-item {
   display: grid;
   place-items: center;
-  width: 200px;
   width: 100%;
 }
 .judul-page-found {
@@ -294,6 +293,16 @@ main.template {
   }
 }
 /* code for media < 578px / mobile */
+
+@media screen and (max-width: 400px) {
+  .judul-page-found .not-moon {
+    width: 100px;
+    height: 100px;
+  }
+  .page-item .desc-not {
+    text-align: center;
+  }
+}
 
 /* code for media < 350px / mobile */
 @media only screen and (max-width: 350px) {
