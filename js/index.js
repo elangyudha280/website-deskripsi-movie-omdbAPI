@@ -151,3 +151,13 @@ catch(err){
    
     
 })
+
+
+
+// fitur stars not found
+
+function stars(){
+
+    let jumbotron_container = document.querySelector('.jumbotron-movie')
+
+}
