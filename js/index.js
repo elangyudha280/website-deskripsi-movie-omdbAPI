@@ -158,6 +158,29 @@ catch(err){
 
 function stars(){
 
-    let jumbotron_container = document.querySelector('.jumbotron-movie')
+let jumbotron_container = document.querySelector('.jumbotron-movie');
+ 
+    for(let i =1;i<=15;i++){
+        let i_stars = document.createElement('i');
+        i_stars.setAttribute('class','i-stars')
+
+        let y = Math.floor(Math.random() * jumbotron_container.clientHeight);
+        let x = Math.floor(Math.random() * jumbotron_container.clientWidth);
+
+        let duration = Math.random() * 6;
+
+        i_stars.style.top = y + 'px';
+        i_stars.style.left = x + 'px';
+
+        i_stars.style.animationDuration = 2 + duration + 's';
+        
+        i_stars.style.animationDelay = duration + 's';
+        
+        jumbotron_container.appendChild(i_stars);
+ 
+    }
+
 
 }
+stars();
+
